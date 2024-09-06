@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Clothes Try On</title>
+    {%load static%}
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .tshirt-image {
+            max-width: 300px; 
+            max-height: 300px; 
+        }
+        #video {
+            display: none;
+            max-width: 640px; 
+            max-height: 480px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Virtual Clothes Try On</h1>
+    <div class="container">
+        <button onclick="startWebcam()">Start Webcam</button>
+        <img src="{% static 'images/shirt2.png' %}" class="tshirt-image"/>
+    </div>
+    <div>
+        <img id="video" src="{% url 'video_feed' %}" />
+    </div>
+    <script>
+        function startWebcam() {
+            document.getElementById('video').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
